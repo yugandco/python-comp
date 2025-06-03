@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
-CORS(app)  # Разрешаем CORS для React Native
+CORS(app, resources={r"/api/*": {"origins": "*"}})  # Явно разрешаем CORS
 
 @app.route('/api/execute', methods=['POST'])
 def execute():
